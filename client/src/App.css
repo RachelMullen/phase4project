@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+.login {
+  display: flex;
+  flex-direction: row;
+}
+
+.twitter_logo {
+  width: 3rem;
+  margin-top: 2rem;
+}
+
+.login_content {
+  margin-left: 3rem;
+}
+
+.twitter_login_image {
+  width: 49.5rem;
+}
+
+.login_header {
+  font-size: 4rem;
+  font-family: 'Helvetica Neue';
+  font-weight: 900;
+}
