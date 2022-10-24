@@ -1,5 +1,4 @@
-import './App.css';
-
+// import {createGlobalStyle} from 'styled-components'
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -13,6 +12,7 @@ function App() {
   }, []);
 
   return (
+    // <GlobalStyle />
     <BrowserRouter>
       <div className="App">
         <Switch>
@@ -29,3 +29,10 @@ function App() {
 }
 
 export default App;
+
+// const GlobalStyle = createGlobalStyle`
+//     body{
+//       background-color: black; 
+//       color:white;
+//     }
+//     `
