@@ -1,0 +1,2 @@
+class WoofsController < ApplicationController
+end
