@@ -13,7 +13,6 @@ User.create!([{
 puts "Seeding woofs..."
 (1..10).each do |id|
 Comment.create!([
-    id: id,
     user_id: rand(1..20),
     comment: Faker::Lorem.sentence(word_count: 3),
     user_name: User.find(rand(1..20)).name,
