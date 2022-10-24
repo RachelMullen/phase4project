@@ -19,7 +19,7 @@ woof6 = Woof.create!(image_url: Faker::Avatar.image, woof_content: Faker::Quote.
 
 ###
 puts "Adding likes to woofs..."
-like1 = Like.create!(user_id: user2.id, woof_id: woof2.id)
+like1 = Like.create!(user_id: user4.id, woof_id: woof2.id)
 like2 = Like.create!(user_id: user1.id, woof_id: woof3.id) 
 like3 = Like.create!(user_id: user3.id, woof_id: woof1.id)
 like4 = Like.create!(user_id: user2.id, woof_id: woof3.id)
@@ -30,13 +30,13 @@ end
 
 ###
 puts "Adding comments to woofs..."
-comment1 = Comment.create!(user_id: user2.id, woof_id: woof2.id, comment: Faker::Lorem.sentence(word_count: 3))
-comment2 = Comment.create!(user_id: user1.id, woof_id: woof3.id, comment: Faker::Lorem.sentence(word_count: 3)) 
-comment3 = Comment.create!(user_id: user3.id, woof_id: woof1.id, comment: Faker::Lorem.sentence(word_count: 3))
-comment4 = Comment.create!(user_id: user2.id, woof_id: woof3.id, comment: Faker::Lorem.sentence(word_count: 3))
-comment5 = Comment.create!(user_id: user4.id, woof_id: woof1.id, comment: Faker::Lorem.sentence(word_count: 3))
-comment6 = Comment.create!(user_id: user1.id, woof_id: woof5.id, comment: Faker::Lorem.sentence(word_count: 3))
-comment7 = Comment.create!(user_id: user5.id, woof_id: woof4.id, comment: Faker::Lorem.sentence(word_count: 3))
+comment1 = Comment.create!(user_id: user2.id, woof_id: woof2.id, comment: Faker::Lorem.sentence(word_count: 5))
+comment2 = Comment.create!(user_id: user1.id, woof_id: woof3.id, comment: Faker::Lorem.sentence(word_count: 5)) 
+comment3 = Comment.create!(user_id: user3.id, woof_id: woof1.id, comment: Faker::Lorem.sentence(word_count: 5))
+comment4 = Comment.create!(user_id: user2.id, woof_id: woof3.id, comment: Faker::Lorem.sentence(word_count: 5))
+comment5 = Comment.create!(user_id: user4.id, woof_id: woof1.id, comment: Faker::Lorem.sentence(word_count: 5))
+comment6 = Comment.create!(user_id: user1.id, woof_id: woof5.id, comment: Faker::Lorem.sentence(word_count: 5))
+comment7 = Comment.create!(user_id: user5.id, woof_id: woof4.id, comment: Faker::Lorem.sentence(word_count: 5))
 end
 
 puts "Done seeding!"
