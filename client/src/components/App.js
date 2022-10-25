@@ -1,58 +1,39 @@
-import '../App.css';
-import Login from './Login'
-import Home from './Home'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Switch, Route } from "react-router-dom";
+import Login from "../pages/Login";
+import NavBar from "./NavBar";
+import Profile from "../pages/Profile";
+import Home from "../pages/Home";
 
-function App() {
+export default function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+  if (!user) return <Login onLogin={setUser} />;
+
   return (
-    <div>
-      <Login />
-    </div>
-  //   <div className="App">
-  //     <Router>
-  //       <Routes>
-  //           <Route exact path="/" element={
-  //               <Home />
-  //           }/>
-  //           <Route path="/login" element={
-  //               <Login />
-  //           }/>
-  //           </Routes>   
-  //       </Router>
-  //   </div>
+    <>
+      <NavBar user={user} setUser={setUser} />
+      <main>
+        <Switch>
+          <Route exact path="/">
+            <Home user={user} />
+          </Route>
+          <Route exact path="/profile">
+            <Profile user={user} />
+          </Route>
+          <Route exact path="/logout">
+            <Login />
+          </Route>
+        </Switch>
+      </main>
+    </>
   );
 }
-
-export default App;
-
-// import './App.css';
-
-// import { useState, useEffect } from "react";
-// import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-// function App() {
-//   const [count, setCount] = useState(0);
-
-//   useEffect(() => {
-//     fetch("/hello")
-//       .then((r) => r.json())
-//       .then((data) => setCount(data.count));
-//   }, []);
-
-//   return (
-//     <BrowserRouter>
-//       <div className="App">
-//         <Switch>
-//           <Route path="/testing">
-//             <h1>Test Route</h1>
-//           </Route>
-//           <Route path="/">
-//             <h1>Page Count: {count}</h1>
-//           </Route>
-//         </Switch>
-//       </div>
-//     </BrowserRouter>
-//   );
-// }
-
-// export default App;

@@ -66,6 +66,7 @@ a {
 a:hover {
   color: #8a30f9;
   transition: 500ms ease all;
+  cursor: pointer;
 }
 
 a:active {
@@ -84,12 +85,39 @@ button,
 textarea,
 select {
   font: inherit;
+  margin: 10px;
+  padding: 5px;
 }
 
 button:hover {
   background-color: rgba(0, 0, 0, 0.346);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
   transition: 500ms ease all;
+  cursor: pointer;
+}
+
+.login {
+  display: flex;
+  flex-direction: row;
+}
+
+.twitter_logo {
+  width: 3rem;
+  margin-top: 2rem;
+}
+
+.login_content {
+  margin-left: 3rem;
+}
+
+.twitter_login_image {
+  width: 49.5rem;
+}
+
+.login_header {
+  font-size: 4rem;
+  font-family: 'Helvetica Neue';
+  font-weight: 900;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
@@ -108,3 +136,19 @@ button:hover {
   }
 }
 
+input {
+  /* outline: none ! important; */
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+  }
+
+input:focus {
+  outline: none ! important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+  }
+
+textarea:focus {
+  outline: none ! important;
+  border-color: #719ECE;
+  }
