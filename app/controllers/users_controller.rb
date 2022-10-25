@@ -15,9 +15,13 @@ def create
 
 ## SHOW CURRENT USER
 def show
-    render json: current_user, status: :ok
+    render json: @current_user
 end
 
+def show_user id
+    user = User.find(params[:id])
+    render json: user
+end
 ## UPDATE CURRENT USER
 def update
 
