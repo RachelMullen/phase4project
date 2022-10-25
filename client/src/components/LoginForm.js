@@ -9,6 +9,10 @@ export default function LoginForm({ onLogin }) {
   const history = useHistory();
 
   function handleSubmit(e) {
+    let user = {
+      "username" : username,
+      "password" : password
+    }
     e.preventDefault();
     setIsLoading(true);
     fetch("/login", {
@@ -16,7 +20,7 @@ export default function LoginForm({ onLogin }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify(user),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {

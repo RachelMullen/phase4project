@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import twitterLogo from '../assets/twitterLogo.png'
 
 export default function NavBar({ user, setUser }) {
   function handleLogout() {
@@ -12,8 +13,8 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <>
-      <div>
-        <p>Welcome, {user.username}!</p>
+      <div className="navbar">
+        <img alt="twitterLogo" src={twitterLogo} />
         <Link to="/">Home</Link>
         <Link to="/profile">Profile</Link>
         <Link to="/about">About</Link>
