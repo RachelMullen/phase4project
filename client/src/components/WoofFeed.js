@@ -1,15 +1,13 @@
 import React from "react";
-import WoofCard from "./WoofCard";
+import WoofList from "./WoofList";
 import WoofForm from "./WoofForm";
 
 export default function WoofFeed({ woofs }) {
   return (
     <>
       <div>
-        {/* Have this populate a new woof that appears on page */}
         <WoofForm woofs={woofs} />
-        {/* Map through all of the Woofs */}
-        <WoofCard woofs={woofs} />
+        <WoofList woofs={woofs} />
       </div>
     </>
   );

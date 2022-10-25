@@ -31,7 +31,7 @@ export default function App() {
             <Profile user={user} />
           </Route>
           <Route exact path="/about">
-            <About/>
+            <About />
           </Route>
           <Route exact path="/logout">
             <Login />

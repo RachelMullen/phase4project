@@ -21,7 +21,7 @@ export default function LoginForm({ onLogin }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        history.push(`/`);
+        history(`/`);
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
