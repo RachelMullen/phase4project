@@ -1,11 +1,11 @@
 import React from "react";
 import WoofFeed from "../components/WoofFeed";
 
-export default function Home() {
+export default function Home({woofs}) {
   return (
     <>
       This is the home page
-      <WoofFeed />
+      <WoofFeed woofs={woofs} />
     </>
   );
 }
