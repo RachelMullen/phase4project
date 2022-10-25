@@ -7,7 +7,7 @@ def index
 
 ## CREATE NEW WOOF
 def create
-    woof = @current_user.Woofs.create!(woof_params)
+    woof = @current_user.woofs.create!(woof_params)
     render json: woof, status: :created
 end
 
