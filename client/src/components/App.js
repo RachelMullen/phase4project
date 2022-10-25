@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import NavBar from "./NavBar";
 import Profile from "../pages/Profile";
 import Home from "../pages/Home";
+import About from "../pages/About";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -28,6 +29,9 @@ export default function App() {
           </Route>
           <Route exact path="/profile">
             <Profile user={user} />
+          </Route>
+          <Route exact path="/about">
+            <About/>
           </Route>
           <Route exact path="/logout">
             <Login />

@@ -15,7 +15,7 @@ def create
 
 ## SHOW CURRENT USER
 def show
-    render json: current_user, status: :ok
+    render json: @current_user
 end
 
 ## UPDATE CURRENT USER
