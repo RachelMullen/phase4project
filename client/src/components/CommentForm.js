@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 
 export default function CommentForm({ addComment }) {
   const [formData, setFormData] = useState({
     comment: "",
   });
   const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const history = useHistory();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -13,6 +17,7 @@ export default function CommentForm({ addComment }) {
 
   function onSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
 
     fetch("/comments", {
       method: "POST",

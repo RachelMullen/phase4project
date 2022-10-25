@@ -15,7 +15,7 @@ def create
 
 ## SHOW CURRENT USER
 def show
-    render json: @current_user
+    render json: current_user, status: :ok
 end
 
 ## UPDATE CURRENT USER
@@ -33,6 +33,6 @@ end
     private
     
 def user_params
-        params.permit(:username, :password, :password_confirmation)
+        params.permit(:username, :password, :password_confirmation, :name, :username, :breed, :email, :bio, :image_url)
     end
 end
