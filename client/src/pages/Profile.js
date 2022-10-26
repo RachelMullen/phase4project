@@ -26,10 +26,7 @@ export default function Profile( {user}) {
         <img alt="profile_picture" src={user.image_url} />
         <button onClick ={settingsPage} >Edit Profile</button>
          {/* Does this need to be a form? Should the form be separate? Will this redirect to signup and then override? */}
-<<<<<<< HEAD
-=======
         
->>>>>>> 5bc978c0ee7bbf0b94db23fdae83e56f6dbb7bcd
         {/* <p> Should we display all of the users Woofs here as a stretch goal?</p> */}
         <WoofForm />
       </div>
