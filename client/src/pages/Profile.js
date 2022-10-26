@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import NavBar from '../components/NavBar'
-import WoofFeed from '../components/WoofFeed'
 import { useHistory } from "react-router-dom";
 
 export default function Profile( {user}) {
@@ -32,7 +31,6 @@ export default function Profile( {user}) {
         <button>Submit</button>
         <button>Delete</button>
         {/* <p> Should we display all of the users Woofs here as a stretch goal?</p> */}
-        <WoofFeed />
       </div>
     </>
   );
