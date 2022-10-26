@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom"; 
 import WoofList from "../components/WoofList";
@@ -41,6 +42,18 @@ export default function Home() {
       {woofs  ?
       (<WoofList woofs={woofs} handleDelete={handleDelete}/>) 
      : null} 
+=======
+import React from "react";
+// import WoofList from "./WoofList";
+// import WoofForm from "./WoofForm";
+
+export default function Home() {
+  return (
+    <>
+      This is the home page
+      {/* <WoofForm woofs={woofs} />
+      <WoofList woofs={woofs} /> */}
+>>>>>>> 5bc978c0ee7bbf0b94db23fdae83e56f6dbb7bcd
     </>
   );
 }
