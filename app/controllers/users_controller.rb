@@ -18,6 +18,10 @@ def show
     render json: @current_user
 end
 
+def user_woofs
+    render json: @current_user.woofs
+end
+
 def show_user id
     user = User.find(params[:id])
     render json: user

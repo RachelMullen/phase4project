@@ -6,10 +6,13 @@ import Profile from "../pages/Profile";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Settings from "../pages/Settings"
+import {useParams} from 'react-router-dom'
+
 
 export default function App() {
   const [user, setUser] = useState(null);
   const [accounts, setAccounts] = useState([]);
+
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -18,6 +21,7 @@ export default function App() {
       }
     });
   }, []);
+
 
   const deleteAccount = (id) => setAccounts(current => current.filter(p => p.id !== id)) 
 

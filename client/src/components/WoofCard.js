@@ -7,8 +7,6 @@ export default function WoofCard({handleDelete, woof}) {
 
   const params = useParams();
 
-  console.log(woof)
-
   if (!woof) return <h1>Loading</h1>;
   if (errors) return <h1>{errors}</h1>;
 

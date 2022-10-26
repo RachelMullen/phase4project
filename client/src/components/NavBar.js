@@ -17,7 +17,7 @@ export default function NavBar({ user, setUser }) {
         <img className="twitter_logo" alt="twitterLogo" src={twitterLogo} />
           <div className="navbar_links">
             <Link to="/">Home</Link>
-            <Link to="/profile">Profile</Link>
+            <Link to="/profile/">Profile</Link>
             <Link to="/about">About</Link>
             <button onClick={handleLogout}>Logout</button>
           </div>
