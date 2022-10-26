@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   # get "/profile/:id", to: "woofs#show"
+  patch "/settings/profile", to: "users#update"
+  delete "/settings/profile", to: "users#destroy"
+  get "/profile", to: "users#index"
 
   get '*path',
       to: 'fallback#index',

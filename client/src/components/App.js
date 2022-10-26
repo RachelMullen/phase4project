@@ -5,9 +5,11 @@ import NavBar from "./NavBar";
 import Profile from "../pages/Profile";
 import Home from "../pages/Home";
 import About from "../pages/About";
+import Settings from "../pages/Settings"
 
 export default function App() {
   const [user, setUser] = useState(null);
+  const [accounts, setAccounts] = useState([]);
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -16,6 +18,9 @@ export default function App() {
       }
     });
   }, []);
+
+  const deleteAccount = (id) => setAccounts(current => current.filter(p => p.id !== id)) 
+
 
   if (!user) return <Login onLogin={setUser} />;
 
@@ -35,6 +40,9 @@ export default function App() {
           </Route>
           <Route exact path="/logout">
             <Login />
+          </Route>
+          <Route exact path="/settings/profile">
+            <Settings user={user} deleteAccount = {deleteAccount} />
           </Route>
         </Switch>
       </main>

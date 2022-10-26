@@ -14,11 +14,13 @@ export default function NavBar({ user, setUser }) {
   return (
     <>
       <div className="navbar">
-        <img alt="twitterLogo" src={twitterLogo} />
-        <Link to="/">Home</Link>
-        <Link to="/profile">Profile</Link>
-        <Link to="/about">About</Link>
-        <button onClick={handleLogout}>Logout</button>
+        <img className="twitter_logo" alt="twitterLogo" src={twitterLogo} />
+          <div className="navbar_links">
+            <Link to="/">Home</Link>
+            <Link to="/profile">Profile</Link>
+            <Link to="/about">About</Link>
+            <button onClick={handleLogout}>Logout</button>
+          </div>
       </div>
     </>
   );

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 ## SHOW ALL USERS
 def index
-    render json:User.all
+    render json:@current_user.woofs
 end
 
 ## CREATE NEW USER
@@ -24,13 +24,13 @@ def show_user id
 end
 ## UPDATE CURRENT USER
 def update
-
+    @current_user.update(user_params)
+    render json: @current_user
 end
 
 ##DELETE CURRENT USER
 def destroy
-    user = User.find(params[:id])
-    user.destroy
+    @current_user.destroy
     head :no_content
 end
 
