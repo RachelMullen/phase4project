@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   patch "/settings/profile", to: "users#update"
   delete "/settings/profile", to: "users#destroy"
   get "/profile", to: "users#index"
+  get "/home", to: "woofs#index"
 
   get '*path',
       to: 'fallback#index',
