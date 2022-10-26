@@ -1,14 +1,21 @@
 import React from "react";
-import WoofCard from "./WoofList";
-import WoofForm from "./WoofForm";
+import WoofCard from "./WoofCard";
 
-export default function WoofList({ woofs }) {
+function WoofList( {woofs}, {handleDelete} ) {
+
+  console.log(woofs)
+
+  const woofsCollection = woofs.map((woof) => {
+    return (
+      <WoofCard key = {woof.id} woof = {woof} handleDelete = {handleDelete}/>
+    )
+  })
+
   return (
-    <>
-      <div>
-        <WoofForm woofs={woofs} />
-        <WoofCard woofs={woofs} />
-      </div>
-    </>
+    <ul className="woofs">
+      {woofsCollection}
+    </ul>
   );
 }
+
+export default WoofList;

@@ -30,7 +30,7 @@ export default function App() {
       <main>
         <Switch>
           <Route exact path="/">
-            <Home user={user}/>
+            <Home user={user} />
           </Route>
           <Route exact path="/profile">
             <Profile user={user} />
