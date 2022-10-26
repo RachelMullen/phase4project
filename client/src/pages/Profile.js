@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import NavBar from '../components/NavBar'
 import { useHistory } from "react-router-dom";
+import WoofForm from "../components/WoofForm"
 
 export default function Profile( {user}) {
 
@@ -18,19 +19,15 @@ export default function Profile( {user}) {
   return (
     <>
       <div>
+        <NavBar />
         <h1>{user.name}</h1>
         <h2>@{user.username}</h2>
         <h2>Joined {user.created_at}</h2>
         <img alt="profile_picture" src={user.image_url} />
         <button onClick ={settingsPage} >Edit Profile</button>
          {/* Does this need to be a form? Should the form be separate? Will this redirect to signup and then override? */}
-        <p>
-          Display and Edit: Name, Username, Email, Password, Breed, Photo, Bio
-        </p>
-        <button>Edit</button>
-        <button>Submit</button>
-        <button>Delete</button>
         {/* <p> Should we display all of the users Woofs here as a stretch goal?</p> */}
+        <WoofForm />
       </div>
     </>
   );
