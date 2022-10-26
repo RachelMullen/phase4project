@@ -2,6 +2,8 @@ class User < ApplicationRecord
     has_many :comments
     has_many :woofs, through: :comments
 
+    #need to add dependent destroy
+
     has_secure_password
 
     # validates :username, presence: true
