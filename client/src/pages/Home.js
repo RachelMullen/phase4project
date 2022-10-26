@@ -1,13 +1,10 @@
 import React from "react";
-import WoofList from "./WoofList";
-import WoofForm from "./WoofForm";
+import WoofFeed from "../components/WoofFeed";
 
-export default function Home({woofs}) {
   return (
     <>
       This is the home page
-      <WoofForm woofs={woofs} />
-      <WoofList woofs={woofs} />
+      <WoofFeed woofs={woofs} />
     </>
   );
 }

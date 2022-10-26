@@ -2,8 +2,7 @@ class WoofsController < ApplicationController
 
 ## SHOW ALL WOOFS
 def index
-    woofs = Woof.all
-    render json: 
+    render json: Woof.all
 end
 
 ## CREATE NEW WOOF
