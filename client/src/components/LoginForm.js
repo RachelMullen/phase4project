@@ -13,6 +13,7 @@ export default function LoginForm({ onLogin }) {
       "username" : username,
       "password" : password
     }
+    console.log(user);
     e.preventDefault();
     setIsLoading(true);
     fetch("/login", {

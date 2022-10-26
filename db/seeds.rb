@@ -2,11 +2,11 @@ require 'faker'
 
 ###
 puts "Seeding users..."
-user1 = User.create!(username: "user1", password_digest: "password1", name: Faker::Creature::Dog.name, breed: Faker::Creature::Dog.breed, email: Faker::Internet.email, bio: Faker::Quote.yoda, image_url: Faker::Avatar.image)
-user2 = User.create!(username: "user2", password_digest: "password2", name: Faker::Creature::Dog.name, breed: Faker::Creature::Dog.breed, email: Faker::Internet.email, bio: Faker::Quote.yoda, image_url: Faker::Avatar.image)
-user3 = User.create!(username: "user3", password_digest: "password3", name: Faker::Creature::Dog.name, breed: Faker::Creature::Dog.breed, email: Faker::Internet.email, bio: Faker::Quote.yoda, image_url: Faker::Avatar.image)
-user4 = User.create!(username: "user4", password_digest: "password4", name: Faker::Creature::Dog.name, breed: Faker::Creature::Dog.breed, email: Faker::Internet.email, bio: Faker::Quote.yoda, image_url: Faker::Avatar.image)
-user5 = User.create!(username: "user5", password_digest: "password5", name: Faker::Creature::Dog.name, breed: Faker::Creature::Dog.breed, email: Faker::Internet.email, bio: Faker::Quote.yoda, image_url: Faker::Avatar.image)
+user1 = User.create!(username: "user1", password: "password1", name: Faker::Creature::Dog.name, breed: Faker::Creature::Dog.breed, email: Faker::Internet.email, bio: Faker::Quote.yoda, image_url: Faker::Avatar.image)
+user2 = User.create!(username: "user2", password: "password2", name: Faker::Creature::Dog.name, breed: Faker::Creature::Dog.breed, email: Faker::Internet.email, bio: Faker::Quote.yoda, image_url: Faker::Avatar.image)
+user3 = User.create!(username: "user3", password: "password3", name: Faker::Creature::Dog.name, breed: Faker::Creature::Dog.breed, email: Faker::Internet.email, bio: Faker::Quote.yoda, image_url: Faker::Avatar.image)
+user4 = User.create!(username: "user4", password: "password4", name: Faker::Creature::Dog.name, breed: Faker::Creature::Dog.breed, email: Faker::Internet.email, bio: Faker::Quote.yoda, image_url: Faker::Avatar.image)
+user5 = User.create!(username: "user5", password: "password5", name: Faker::Creature::Dog.name, breed: Faker::Creature::Dog.breed, email: Faker::Internet.email, bio: Faker::Quote.yoda, image_url: Faker::Avatar.image)
 
 
 ###

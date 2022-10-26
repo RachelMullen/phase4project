@@ -25,7 +25,7 @@ export default function Login({ onLogin }) {
           <h2 className="login">Join Twitter today.</h2>
           <div className="popup">
             {/* <button onclick={handleClick}>Sign up with phone or email</button> */}
-            <span class="popuptext" id="myPopup">
+            <span className="popuptext" id="myPopup">
               Popup text...
             </span>
             <p>
