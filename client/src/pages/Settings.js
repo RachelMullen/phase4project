@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function Settings ( {user, deleteAccount} ) {
+function Settings ( {user, deleteAccount, updateUser }) {
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState(user.password);
@@ -39,6 +39,7 @@ const history = useHistory()
         setIsLoading(false);
         if (r.ok) {
             r.json().then((userData) => console.log(userData));
+            updateUser(user)
           } else {
             r.json().then((err) => setErrors(err.errors));
           }

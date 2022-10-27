@@ -6,6 +6,7 @@ import WoofSettings from "../pages/WoofSettings"
 
 export default function Profile( {user, deleteWoof } ) {
   const [displayedWoofs, setDisplayedWoofs] = useState([])
+  const [popUp, setPopUp] = useState(false)
 
   const history = useHistory();
   const params = useParams();
@@ -59,7 +60,7 @@ export default function Profile( {user, deleteWoof } ) {
     }});
     }
 
-      const settingsPage = () => history.push('settings/')
+      const settingsPage = () => history.push('profile/settings/')
 
       
 

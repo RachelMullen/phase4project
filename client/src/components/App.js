@@ -25,6 +25,7 @@ export default function App() {
   
   const deleteAccount = (id) => setAccounts(current => current.filter(p => p.id !== id)) 
   const deleteWoof = (id) => setWoofs(woofs => woofs.filter(woof => woof.id !== id))
+  const updateUser = (user) => setUser(user)
   // const addWoof = (woof) => setWoofs(current => [...current,woof])
 
 
@@ -32,7 +33,7 @@ export default function App() {
 
   return (
     <>
-      <NavBar user={user} setUser={setUser} />
+      <NavBar user={user} setUser={setUser}/>
       <main>
         <Switch>
           <Route exact path="/">
@@ -48,7 +49,7 @@ export default function App() {
             <Login />
           </Route>
           <Route exact path="/profile/settings">
-            <Settings user={user} deleteAccount = {deleteAccount} />
+            <Settings user={user} deleteAccount = {deleteAccount} updateUser = {updateUser}/>
           </Route>
           {/* <Route exact path="/woof/settings">
             <WoofSettings />
