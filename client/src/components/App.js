@@ -5,11 +5,13 @@ import NavBar from "./NavBar";
 import Profile from "../pages/Profile";
 import Home from "../pages/Home";
 import About from "../pages/About";
-import Settings from "../pages/Settings"
+import Settings from "../pages/Settings";
+import WoofSettings from "../pages/WoofSettings";
 
 export default function App() {
   const [user, setUser] = useState(null);
   const [accounts, setAccounts] = useState([]);
+  const [woofs, setWoofs] = useState([]);
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -19,8 +21,10 @@ export default function App() {
     });
   }, []);
 
-  const deleteAccount = (id) => setAccounts(current => current.filter(p => p.id !== id)) 
-
+  const deleteAccount = (id) =>
+    setAccounts((current) => current.filter((p) => p.id !== id));
+  const deleteWoof = (id) =>
+    setWoofs((woofs) => woofs.filter((woof) => woof.id !== id));
 
   if (!user) return <Login onLogin={setUser} />;
 
@@ -29,11 +33,14 @@ export default function App() {
       <NavBar user={user} setUser={setUser} />
       <main>
         <Switch>
-          <Route exact path="/">
-            <Home user={user}/>
+          <Route exact path="/home">
+            <Home user={user} />
           </Route>
-          <Route exact path="/profile">
-            <Profile user={user} />
+          <Route exact path="/">
+            <Home user={user} />
+          </Route>
+          <Route exact path="/profile/">
+            <Profile user={user} deleteWoof={deleteWoof} />
           </Route>
           <Route exact path="/about">
             <About />
@@ -41,9 +48,12 @@ export default function App() {
           <Route exact path="/logout">
             <Login />
           </Route>
-          <Route exact path="/settings/profile">
-            <Settings user={user} deleteAccount = {deleteAccount} />
+          <Route exact path="/profile/settings">
+            <Settings user={user} deleteAccount={deleteAccount} />
           </Route>
+          {/* <Route exact path="/woof/settings">
+            <WoofSettings />
+          </Route> */}
         </Switch>
       </main>
     </>

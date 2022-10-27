@@ -18,10 +18,17 @@ def show
     render json: @current_user
 end
 
+## SHOW CURRENT USERS WOOFS
+def user_woofs
+    render json: @current_user.woofs
+end
+
+## SHOW CURRENT USER DETAILS
 def show_user id
     user = User.find(params[:id])
     render json: user
 end
+
 ## UPDATE CURRENT USER
 def update
     @current_user.update(user_params)

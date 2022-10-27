@@ -152,3 +152,12 @@ textarea:focus {
   outline: none ! important;
   border-color: #719ECE;
   }
+
+  /* Assign to parents for changing direction
+.row { display: flex; flex-direction: row; }
+.col { display: flex; flex-direction: column; }
+/* Assign to children of row/col to center */
+/* .row.centerChildren > *, .row > .centered { align-self: center; margin: auto 0px; }
+.col.centerChildren > *, .col > .centered { align-self: center; margin: 0px auto; } */
+/* Assign to empty child div to aesthetically fill space */
+/* .spacer { flex:1; } */

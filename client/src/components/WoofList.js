@@ -1,31 +1,31 @@
 import React from "react";
-import WoofCard from "./WoofList";
-import WoofForm from "./WoofForm";
+import WoofCard from "./WoofCard";
+// import WoofForm from "../components/WoofForm";
+// import { useHistory, useParams } from "react-router-dom";
+// import CommentCard from "../components/WoofForm";
 
-function WoofList( {woofs}, {handleDelete} ) {
+export default function WoofList({ woofs }) {
+  // const [comments, setComments] = useState([]);
 
-  console.log(woofs)
+  // const history = useHistory();
+  // const params = useParams();
 
+//   useEffect(() => {
+//     fetch("/comments").then((response) => {
+//       if (response.ok) 
+//         response.json().then((comments) => setComments(comments));
+//       }
+// );
+// }, []);
   const woofsCollection = woofs.map((woof) => {
-    return (
-      <WoofCard key = {woof.id} woof = {woof} handleDelete = {handleDelete}/>
-    )
-  })
+    return <WoofCard key={woof.id} woof={woof} />;
+  });
 
   return (
-<<<<<<< HEAD
     <ul className="woofs">
+      {/* <WoofForm /> */}
       {woofsCollection}
+      {/* {comments ? comments={comments} : null} */}
     </ul>
-=======
-    <>
-      <div>
-        <WoofForm woofs={woofs} />
-        <WoofCard woofs={woofs} />
-      </div>
-    </>
->>>>>>> 5bc978c0ee7bbf0b94db23fdae83e56f6dbb7bcd
   );
 }
-
-export default WoofList;

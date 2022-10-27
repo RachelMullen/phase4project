@@ -7,7 +7,7 @@ export default function SignUpForm({ onLogin }) {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [image_url, setImage_Url] = useState("");
   const [bio, setBio] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +28,7 @@ export default function SignUpForm({ onLogin }) {
         password_confirmation: passwordConfirmation,
         name,
         breed,
-        image_url: imageUrl,
+        image_url,
         bio,
       }),
     }).then((r) => {
@@ -109,8 +109,8 @@ export default function SignUpForm({ onLogin }) {
           <input
             type="text"
             id="image_url"
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
+            value={image_url}
+            onChange={(e) => setImage_Url(e.target.value)}
           />
         </p>
         <p>
@@ -123,7 +123,7 @@ export default function SignUpForm({ onLogin }) {
           />
         </p>
         <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
-        {errors?.map((err) => (
+        {errors.map((err) => (
           <error key={err}>{err}</error>
         ))}
       </form>

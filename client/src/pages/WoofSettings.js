@@ -1,28 +1,33 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
-export default function WoofForm({ onAddWoof }) {
-  const [woofContent, setWoofContent] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+export default function WoofsSettings({ displayedWoof }) {
+  const [woofContent, setWoofContent] = useState(displayedWoof.woof_content);
+  const [imageUrl, setImageUrl] = useState(displayedWoof.image_url);
 
-  // const [errors, setErrors] = useState([]);
+  const { id } = useParams();
 
   function handleSubmit(e) {
-    let woof = {
-      woof_content: woofContent,
-      image_url: imageUrl,
-    };
     e.preventDefault();
-    fetch("/woofs", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(woof),
-    }).then((res) => {
-      if (res.ok) {
-        res.json().then((promisedWoof) => onAddWoof(promisedWoof));
-        // } else {
-        //Display errors
-        // res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
+    // setErrors([]);
+    // setIsLoading(true);
+    fetch(`/woof/${displayedWoof.id}/settings`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        woof_content: woofContent,
+        image_url: imageUrl,
+      }),
+    }).then((r) => {
+      // setIsLoading(false);
+      if (r.ok) {
+        r.json().then((userData) => console.log(userData));
       }
+      //   } else {
+      //     r.json().then((err) => setErrors(err.errors));
+      //   }
     });
   }
 
@@ -37,6 +42,7 @@ export default function WoofForm({ onAddWoof }) {
               type="text"
               name="woof"
               value={woofContent}
+              placeholder={displayedWoof.woof_content}
               onChange={(e) => setWoofContent(e.target.value)}
             />
           </p>
@@ -46,6 +52,7 @@ export default function WoofForm({ onAddWoof }) {
               type="text"
               name="image"
               value={imageUrl}
+              placeholder={displayedWoof.image_url}
               onChange={(e) => setImageUrl(e.target.value)}
             />
           </p>

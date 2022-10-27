@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const history = useHistory();
 
   function handleSubmit(e) {
+    let user = {
+      username: username,
+      password: password,
+    };
     e.preventDefault();
     setIsLoading(true);
     fetch("/login", {
@@ -15,11 +20,12 @@ export default function LoginForm({ onLogin }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({username, password,}),
+      body: JSON.stringify(user),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
+        history(`/`);
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -50,7 +56,7 @@ export default function LoginForm({ onLogin }) {
           />
         </p>
         <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
-        {errors?.map((err) => (
+        {errors.map((err) => (
           <error key={err}>{err}</error>
         ))}
       </form>

@@ -1,13 +1,16 @@
-import React from "react";
-// import WoofList from "./WoofList";
-// import WoofForm from "./WoofForm";
+import React, { useState, useEffect } from "react";
+import WoofList from "../components/WoofList";
 
 export default function Home() {
-  return (
-    <>
-      This is the home page
-      {/* <WoofForm woofs={woofs} />
-      <WoofList woofs={woofs} /> */}
-    </>
-  );
+  const [woofs, setWoofs] = useState([]);
+
+  useEffect(() => {
+    fetch("/home").then((response) => {
+      if (response.ok) {
+        response.json().then((woofs) => setWoofs(woofs));
+      }
+    });
+  }, []);
+
+  return <>{woofs ? <WoofList woofs={woofs} /> : null}</>;
 }

@@ -1,34 +1,83 @@
-import React, { useEffect } from "react";
-import NavBar from '../components/NavBar'
-import { useHistory } from "react-router-dom";
-import WoofForm from "../components/WoofForm"
+import React, { useState, useEffect } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import WoofForm from "../components/WoofForm";
+import UserWoofs from "../components/UserWoofs";
+// import WoofSettings from "../pages/WoofSettings";
 
-export default function Profile( {user}) {
+export default function Profile({ user, deleteWoof }) {
+  const [displayedWoofs, setDisplayedWoofs] = useState([]);
 
   const history = useHistory();
+  // const params = useParams();
 
-  
+  console.log(displayedWoofs);
+
   useEffect(() => {
-    fetch(`/me`)
-    .then((r) => r.json())
-    .then((user) => console.log(user));
-      }, []);
+    fetch(`/users/$(user.id)`)
+      .then((r) => r.json())
+      .then((data) => setDisplayedWoofs(data.woofs));
+  }, []);
 
-      const settingsPage = () => history.push('settings/profile')
+  const displayedWoofsCollection = displayedWoofs.map((displayedWoof) => {
+    return (
+      <UserWoofs
+        key={displayedWoof.id}
+        userWoof={displayedWoof}
+        handleDelete={handleDelete}
+      />
+    );
+  });
+
+  const updateWoof = (updatedWoof) =>
+    setDisplayedWoofs((current) => {
+      return current.map((woof) => {
+        if (woof.id === updatedWoof.id) {
+          return updatedWoof;
+        } else {
+          return woof;
+        }
+      });
+    });
+
+  function handleAddWoof(newWoof) {
+    const newWoofArray = [...displayedWoofs, newWoof];
+    setDisplayedWoofs(newWoofArray);
+  }
+
+  function handleDelete(id) {
+    //DELETE to `/woofs/${params.id}`
+    fetch(`/woofs/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    }).then((res) => {
+      if (res.ok) {
+        deleteWoof(id);
+        history.push("/");
+        // } else {
+        //   res
+        //     .json()
+        //     .then((data) =>
+        //       setErrors(Object.entries(data.errors).map((e) => `${e[0]} ${e[1]}`))
+        //     );
+        // }
+      }
+    });
+  }
+
+  const settingsPage = () => history.push("settings/");
 
   return (
     <>
       <div>
-        <NavBar />
+        <img alt="profile_picture" src={user.image_url} />
         <h1>{user.name}</h1>
         <h2>@{user.username}</h2>
         <h2>Joined {user.created_at}</h2>
-        <img alt="profile_picture" src={user.image_url} />
-        <button onClick ={settingsPage} >Edit Profile</button>
-         {/* Does this need to be a form? Should the form be separate? Will this redirect to signup and then override? */}
-        
-        {/* <p> Should we display all of the users Woofs here as a stretch goal?</p> */}
-        <WoofForm />
+        <button onClick={settingsPage}>Edit Profile</button>
+        {/* Does this need to be a form? Should the form be separate? Will this redirect to signup and then override?  */}
+        {/* {/* {/* <p> Should we display all of the users Woofs here as a stretch goal?</p> */}
+        <WoofForm onAddWoof={handleAddWoof} />
+        <ul className="user_woofs">{displayedWoofsCollection}</ul>
       </div>
     </>
   );

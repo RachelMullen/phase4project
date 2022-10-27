@@ -8,7 +8,7 @@ end
 ## CREATE NEW COMMENT
 def create
     comment = @current_user.Comment.create!(comment_params)
-    render json: comment, status: :created
+    render json: comment.woof, status: :created
 end
 
 ## SHOW CURRENT COMMENT
@@ -19,7 +19,9 @@ end
 
 ## UPDATE CURRENT COMMENT
 def update
-
+    comment = Comment.find(params[:id])
+    comment.update!(comment_params)
+    render json: comment, status: :accepted
 end
 
 ##DELETE CURRENT COMMENT

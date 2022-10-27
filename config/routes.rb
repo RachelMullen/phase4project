@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :woofs, only: [:index, :create, :show, :update, :destroy]
+  resources :woofs, only: [:create, :show, :update, :destroy]
   resources :comments, only: [:index, :create, :show, :update, :destroy]
   resources :users, only: [:index, :create, :show, :update, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -12,10 +12,17 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   # get "/profile/:id", to: "woofs#show"
-  patch "/settings/profile", to: "users#update"
-  delete "/settings/profile", to: "users#destroy"
-  get "/profile", to: "users#index"
+  patch "/profile/settings", to: "users#update"
+  delete "/profile/settings", to: "users#destroy"
+  get "/profile/:id", to: "users#user_woofs"
   get "/home", to: "woofs#index"
+  post "/profile", to: "woofs#create"
+  # patch "/woof/:id/settings", to: "woofs#update"
+  delete "/profile/:id", to: "woofs#destroy"
+
+
+  #Delete Comment
+  # get "/comments/id", to "comments#destroy" ___ USE CHASES THAT DOESN"T LET YOU DELETE UNLESS YOU ARE THE USER
 
   get '*path',
       to: 'fallback#index',

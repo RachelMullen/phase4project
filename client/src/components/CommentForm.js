@@ -9,7 +9,6 @@ export default function CommentForm({ addComment }) {
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
