@@ -61,6 +61,8 @@ export default function Profile( {user, deleteWoof } ) {
 
       const settingsPage = () => history.push('settings/')
 
+      
+
   return (
     <>
       <div>
@@ -71,7 +73,7 @@ export default function Profile( {user, deleteWoof } ) {
         <button onClick ={settingsPage} >Edit Profile</button>
           {/* Does this need to be a form? Should the form be separate? Will this redirect to signup and then override?  */}
         {/* {/* {/* <p> Should we display all of the users Woofs here as a stretch goal?</p> */}
-        <WoofForm onAddWoof={handleAddWoof}/>
+        <WoofForm onAddWoof={handleAddWoof} />
         <ul className="user_woofs">
           {displayedWoofsCollection}
         </ul>

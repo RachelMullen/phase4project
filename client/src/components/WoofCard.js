@@ -18,10 +18,6 @@ export default function WoofCard({ woof}) {
           <img src={woof.image_url} alt={woof.woof_content} />
         </p>
       </div>
-      <p>
-        This is where we will come up with something that tracks the number of
-        likes
-      </p>
       <CommentCard />
       </>
   );

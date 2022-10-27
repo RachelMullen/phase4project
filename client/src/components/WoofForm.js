@@ -1,32 +1,33 @@
 import React, { useState } from "react";
 
-export default function WoofForm({ onAddWoof}) {
+export default function WoofForm({ onAddWoof }) {
 
   const [woofContent, setWoofContent] = useState("")
   const [imageUrl, setImageUrl] = useState("")
 
   // const [errors, setErrors] = useState([]);
-
   function handleSubmit(e){
     let woof = {
       "woof_content" : woofContent,
       "image_url" : imageUrl,
     }
     e.preventDefault();
-    fetch('/profile',{
+    console.log(woof.woof_content)
+    fetch('/woofs',{
       method:'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({woof})
+      body: JSON.stringify(woof)
     })
     .then(res => {
       if(res.ok){
-        res.json().then(promisedWoof => onAddWoof(promisedWoof))
+        res.json().then(data => onAddWoof(data))
       // } else {
         //Display errors
         // res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
       }
     })
   }
+
 
   return (
     <>

@@ -4,5 +4,5 @@ class Woof < ApplicationRecord
 
         #need to add dependent destroy
 
-    validates :woof_content, presence: true
+    # validates :woof_content, presence: true
 end
