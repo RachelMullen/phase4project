@@ -20,7 +20,7 @@ const history = useHistory()
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    fetch("/settings/profile", {
+    fetch("/profile/settings", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -46,7 +46,7 @@ const history = useHistory()
 
       function handleDelete(){
         //DELETE to `/productions/${params.id}`
-        fetch("/settings/profile",{
+        fetch("/profile/settings",{
           method:'DELETE',
           headers: {'Content-Type': 'application/json'}
         })

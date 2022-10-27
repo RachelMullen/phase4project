@@ -1,13 +1,13 @@
 import React from "react";
 import WoofCard from "./WoofCard";
 
-function WoofList( {woofs}, {handleDelete} ) {
+function WoofList( {woofs} ) {
 
   console.log(woofs)
 
   const woofsCollection = woofs.map((woof) => {
     return (
-      <WoofCard key = {woof.id} woof = {woof} handleDelete = {handleDelete}/>
+      <WoofCard key = {woof.id} woof = {woof} />
     )
   })
 

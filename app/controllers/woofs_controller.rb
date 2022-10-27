@@ -19,7 +19,9 @@ def show
 
 ## UPDATE CURRENT WOOF OWNED BY USER
 def update
-
+    woof = Woof.find(params[:id])
+    woof.update(woof_params)
+    render json: woof
 end
 
 ##DELETE CURRENT WOOF OWNED BY USER

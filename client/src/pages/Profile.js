@@ -3,9 +3,8 @@ import { useHistory } from "react-router-dom";
 import WoofForm from "../components/WoofForm"
 import UserWoofs from "../components/UserWoofs" 
 
-export default function Profile( {user} ) {
+export default function Profile( {user, deleteWoof, displayedWoof } ) {
   const [displayedWoofs, setDisplayedWoofs] = useState([])
-
   const history = useHistory();
 
 
@@ -13,17 +12,42 @@ export default function Profile( {user} ) {
   
     const displayedWoofsCollection = displayedWoofs.map((displayedWoof) => {
       return (
-        <UserWoofs key = {displayedWoof.id} userWoof = {displayedWoof}/>
+        <UserWoofs key = {displayedWoof.id} userWoof = {displayedWoof} deleteWoof = {deleteWoof}/>
       )
     })
 
-    useEffect(() => {
-      fetch(`/profile/${user.id}`)
-      .then((r) => r.json())
-      .then((displayedWoofs) => setDisplayedWoofs(displayedWoofs));
-        }, []);
+    const updateWoof = (updatedWoof) => setDisplayedWoofs(current => {
+      return current.map(woof => {
+           if(woof.id === updatedWoof.id){
+             return updatedWoof
+           } else {
+             return woof
+           }
+          })
+        })
 
-      const settingsPage = () => history.push('settings/profile')
+    function handleAddWoof (newWoof) {
+      const newWoofArray = [...displayedWoofs, newWoof]
+      setDisplayedWoofs(newWoofArray);
+    }
+
+    function handleDelete(){
+      //DELETE to `/productions/${params.id}`
+      // fetch("/profile",{
+      //     method:'DELETE',
+      //     headers: {'Content-Type': 'application/json'}
+      // })
+      // .then(res => {
+      //     if(res.ok){
+      //       deleteWoof(woof.id)
+      //       history.push('/')
+      //     }
+          // } else {
+          //   res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
+          // }
+      }
+
+      const settingsPage = () => history.push('settings/')
 
   return (
     <>
@@ -33,9 +57,9 @@ export default function Profile( {user} ) {
         <h2>@{user.username}</h2>
         <h2>Joined {user.created_at}</h2>
         <button onClick ={settingsPage} >Edit Profile</button>
-         {/* Does this need to be a form? Should the form be separate? Will this redirect to signup and then override? */}
-        {/* <p> Should we display all of the users Woofs here as a stretch goal?</p> */}
-        <WoofForm />
+         Does this need to be a form? Should the form be separate? Will this redirect to signup and then override? */}
+        {/* {/* {/* <p> Should we display all of the users Woofs here as a stretch goal?</p> */}
+        <WoofForm onAddWoof={handleAddWoof}/>
         <ul className="user_woofs">
           {displayedWoofsCollection}
         </ul>
@@ -43,3 +67,4 @@ export default function Profile( {user} ) {
     </>
   );
 }
+

@@ -1,69 +1,63 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router";
 
-export default function WoofForm({ addWoof }) {
-  const [formData, setFormData] = useState({
-    woof_content: "",
-    image_url: "",
-  });
-  const [errors, setErrors] = useState([]);
+export default function WoofForm({ onAddWoof}) {
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const [woofContent, setWoofContent] = useState("")
+  const [imageUrl, setImageUrl] = useState("")
 
-  function onSubmit(e) {
+  // const [errors, setErrors] = useState([]);
+
+  function handleSubmit(e){
+    let woof = {
+      "woof_content" : woofContent,
+      "image_url" : imageUrl,
+    }
     e.preventDefault();
-
-    fetch("/woofs", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...formData, ongoing: true }),
-    }).then((res) => {
-      if (res.ok) {
-        res.json().then(addWoof);
-      } else {
+    fetch('/profile',{
+      method:'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({woof})
+    })
+    .then(res => {
+      if(res.ok){
+        res.json().then(promisedWoof => onAddWoof(promisedWoof))
+      // } else {
         //Display errors
-        res
-          .json()
-          .then((data) =>
-            setErrors(Object.entries(data.errors).map((e) => `${e[0]} ${e[1]}`))
-          );
+        // res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
       }
-    });
+    })
   }
 
   return (
     <>
       <div>
-        {errors ? errors.map((e) => <div>{e}</div>) : null}
-        <form onSubmit={onSubmit}>
-          <label>Woof! </label>
+        {/* {errors ? errors.map((e) => <div>{e}</div>) : null} */}
+        <form onSubmit={handleSubmit}>
           <p>
-            <input
-              type="text"
-              name="woof"
-              value={formData.woof_content}
-              onChange={handleChange}
-            />
+            <label>Woof!</label>
+              <input
+                type="text"
+                name="woof"
+                value={woofContent}
+                onChange={(e) => setWoofContent(e.target.value)}
+              />
           </p>
-          <label>Image</label>
           <p>
-            <input
-              type="text"
-              name="image"
-              value={formData.image_url}
-              onChange={handleChange}
-            />
+            <label>Image</label>
+              <input
+                type="text"
+                name="image"
+                value={imageUrl}
+                onChange={(e) => setImageUrl(e.target.value)}
+              />
           </p>
-          <input type="submit" value="Send Woof!" />
+          <input type="submit" value="Woof!" />
         </form>
-        {errors
-          ? errors.map((e) => (
-              <h2 style={{ color: "red" }}>{e.toUpperCase()}</h2>
-            ))
-          : null}
+        {/* {errors */}
+          {/* ? errors.map((e) => ( */}
+              {/* <h2 style={{ color: "red" }}>{e.toUpperCase()}</h2> */}
+            {/* )) */}
+          {/* : null} */}
       </div>
     </>
   );
