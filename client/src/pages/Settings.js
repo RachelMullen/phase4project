@@ -18,7 +18,7 @@ export default function Settings({ user, deleteAccount }) {
 
   const history = useHistory();
 
-  function handleSubmit(e) {
+function handleSubmit(e) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);

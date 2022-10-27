@@ -64,7 +64,7 @@ export default function Profile({ user, deleteWoof }) {
     });
   }
 
-  const settingsPage = () => history.push("settings/");
+  const settingsPage = () => history.push("/profile/settings/");
 
   return (
     <>

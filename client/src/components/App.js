@@ -39,7 +39,7 @@ export default function App() {
           <Route exact path="/">
             <Home user={user} />
           </Route>
-          <Route exact path="/profile/">
+          <Route exact path="/profile">
             <Profile user={user} deleteWoof={deleteWoof} />
           </Route>
           <Route exact path="/about">
