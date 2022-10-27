@@ -6,18 +6,14 @@ import Profile from "../pages/Profile";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Settings from "../pages/Settings"
-import {useParams} from 'react-router-dom'
 import WoofSettings from "../pages/WoofSettings"
-
 
 export default function App() {
   const [user, setUser] = useState(null);
   const [accounts, setAccounts] = useState([]);
   const [woofs, setWoofs] = useState([]);
-  const [displayedWoofs, setDisplayedWoofs] = useState([]);]
 
   // const [woof, setWoof] = useState([]);
-
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -26,15 +22,7 @@ export default function App() {
       }
     });
   }, []);
-
-  useEffect(() => {
-    fetch(`/profile/${user.id}`)
-    .then((r) => r.json())
-    .then((displayedWoofs) => setDisplayedWoofs(displayedWoofs));
-      }, []);
-
-
-
+  
   const deleteAccount = (id) => setAccounts(current => current.filter(p => p.id !== id)) 
   const deleteWoof = (id) => setWoofs(woofs => woofs.filter(woof => woof.id !== id))
 
@@ -50,7 +38,7 @@ export default function App() {
             <Home user={user} />
           </Route>
           <Route exact path="/profile">
-            <Profile user={user} deleteWoof = {deleteWoof} displayedWoofs = {displayedWoofs}/>
+            <Profile user={user} deleteWoof = {deleteWoof} />
           </Route>
           <Route exact path="/about">
             <About />

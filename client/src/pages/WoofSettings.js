@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 
-function WoofsSettings ( {woof } ) {
-    const [woofContent, setWoofContent] = useState(woof.woof_content)
-    const [imageUrl, setImageUrl] = useState(woof.image_url)
+function WoofsSettings ( {displayedWoof } ) {
+    const [woofContent, setWoofContent] = useState(displayedWoof.woof_content)
+    const [imageUrl, setImageUrl] = useState(displayedWoof.image_url)
 
     const { id } = useParams()
     
@@ -11,7 +11,7 @@ function WoofsSettings ( {woof } ) {
             e.preventDefault();
             // setErrors([]);
             // setIsLoading(true);
-            fetch(`/woof/${woof.id}/settings`, {
+            fetch(`/woof/${displayedWoof.id}/settings`, {
                 method: "PATCH",
                 headers: {
                   "Content-Type": "application/json",
@@ -41,7 +41,7 @@ function WoofsSettings ( {woof } ) {
                   type="text"
                   name="woof"
                   value={woofContent}
-                  placeholder={woof.woof_content}
+                  placeholder={displayedWoof.woof_content}
                   onChange={(e) => setWoofContent(e.target.value)}
                 />
             </p>
@@ -51,7 +51,7 @@ function WoofsSettings ( {woof } ) {
                   type="text"
                   name="image"
                   value={imageUrl}
-                  placeholder={woof.image_url}
+                  placeholder={displayedWoof.image_url}
                   onChange={(e) => setImageUrl(e.target.value)}
                 />
             </p>
