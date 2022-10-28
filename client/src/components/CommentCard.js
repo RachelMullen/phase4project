@@ -1,16 +1,30 @@
-import { Link, useParams, useHistory } from "react-router-dom";
-import { React} from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import CommentForm from "../components/CommentForm";
 
-export default function CommentCard({ comment }) {
-  // const [comments, setComments] = useState({});
+
+export default function CommentCard({ comment, woof_id } ) {
+  const [comments, setComments] = useState({});
   // const [errors, setErrors] = useState(false);
   // const params = useParams();
-  // const history = useHistory();
+  const history = useHistory();
+
+
+  useEffect(() => {
+    fetch("/comments")
+      .then((r) => r.json())
+      .then(setComments);
+  }, []);
+
+  function handleAddComment(newComment) {
+    setComments((comments) => [...comments, newComment]);
+  }
 
   return (
     <>
       <div>
-          {comment.comment}
+        {comment.comment}
+        <CommentForm onAddComment={handleAddComment} woof_id={woof_id} />
         </div> 
     </>
   );

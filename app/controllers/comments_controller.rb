@@ -7,9 +7,10 @@ end
 
 ## CREATE NEW COMMENT
 def create
-    comment = @current_user.Comment.create!(comment_params)
-    render json: comment.woof, status: :created
+    comment = @current_user.comments.create!(comment_params)
+    render json: comment, status: :created
 end
+
 
 ## SHOW CURRENT COMMENT
 def show

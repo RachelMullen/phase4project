@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   delete "/profile/:id", to: "woofs#destroy"
 
   #comments  
-  # get "/comments", to: "comments#index"
-  # post "/comments", to: "comments#create"
+  get "/home", to: "comments#index"
+  post "/home", to: "comments#create"
   # get "/comments/:id", to: "comments#show"
   # patch "/comments/:id", to "comments#update"
   # delete "/comments/:id", to: "comments#destroy"

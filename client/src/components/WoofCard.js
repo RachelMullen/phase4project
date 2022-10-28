@@ -16,7 +16,7 @@ export default function WoofCard({ woof }) {
   }, []);
 
   const commentsCollection = woof.comments.map((comment) => {
-    return <CommentCard key={comment.id} comment={comment} />;
+    return <CommentCard key={comment.id} comment={comment} woof_id = {woof.id} />;
   });
 
   if (!woof) return <h1>Loading</h1>;

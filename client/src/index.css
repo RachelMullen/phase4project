@@ -48,6 +48,8 @@ body {
   line-height: 1.5;
   margin: 1rem;
   -webkit-font-smoothing: antialiased;
+  max-width: 700px;
+  margin: auto;
 }
 
 /* A elements that don't have a class get default styles */
