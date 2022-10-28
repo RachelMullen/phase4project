@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-export default function Settings({ user, deleteAccount }) {
+function Settings({ user, deleteAccount, updateUser }) {
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState(user.password);
@@ -18,7 +18,7 @@ export default function Settings({ user, deleteAccount }) {
 
   const history = useHistory();
 
-function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
@@ -41,6 +41,7 @@ function handleSubmit(e) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((userData) => console.log(userData));
+        updateUser(user);
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -169,3 +170,5 @@ function handleSubmit(e) {
     </>
   );
 }
+
+export default Settings;

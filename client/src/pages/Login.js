@@ -5,7 +5,7 @@ import SignUp from "../pages/SignUp";
 import twitterLogo from "../assets/twitterLogo.png";
 import twitterLoginGraphic from "../assets/twitterLoginGraphic.jpeg";
 
-export default function Login({ onLogin }) {
+export default function Login({ onLogin, updateUser }) {
   const [showLogin, setShowLogin] = useState(true);
 
   // const popup = document.getElementById("myPopup");
