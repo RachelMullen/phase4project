@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import '../css/PopUp.css';
 // import { useParams } from 'react-router-dom';
 
-function PopUp ( {userWoof, setPopUp, updateWoof} ) {
-     const [woofContent, setWoofContent] = useState(userWoof.woof_content)
+function PopUp ( {userWoof, setPopUp, updateWoof, setIsOpen} ) {
+    const [woofContent, setWoofContent] = useState(userWoof.woof_content)
     const [imageUrl, setImageUrl] = useState(userWoof.image_url)
+
 
     // const PopUp = props => {
         // function that takes boolean as param to conditionally display popup
@@ -16,7 +17,6 @@ function PopUp ( {userWoof, setPopUp, updateWoof} ) {
             e.preventDefault();
             // setErrors([]);
             // setIsLoading(true);
-            console.log(userWoof)
             fetch(`/woof/${userWoof.id}`, {
                 method: "PATCH",
                 headers: {
@@ -30,6 +30,7 @@ function PopUp ( {userWoof, setPopUp, updateWoof} ) {
                 // setIsLoading(false);
                 if (r.ok) {
                     r.json().then((userData) => updateWoof(userData));
+                    setPopUp(false);
                 }
                 //   } else {
                 //     r.json().then((err) => setErrors(err.errors));

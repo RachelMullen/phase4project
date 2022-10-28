@@ -12,6 +12,8 @@ export default function WoofForm({ onAddWoof }) {
       "image_url" : imageUrl,
     }
     e.preventDefault();
+    setWoofContent("");
+    setImageUrl("");
     console.log(woof.woof_content)
     fetch('/woofs',{
       method:'POST',

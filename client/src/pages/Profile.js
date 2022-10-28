@@ -31,7 +31,7 @@ export default function Profile( {user, deleteWoof } ) {
                }
               })
             })
-            
+
     const displayedWoofsCollection = displayedWoofs.map((displayedWoof) => {
       return (
         <UserWoofs key = {displayedWoof.id} userWoof = {displayedWoof} handleDelete = {handleDelete} duringPopUp = {duringPopUp} updateWoof={updateWoof}/>

@@ -11,7 +11,7 @@ user5 = User.create!(username: "user5", password: "password5", name: Faker::Crea
 
 ###
 puts "Seeding woofs..."
-woof1 = Woof.create!(image_url: Faker::Avatar.image, woof_content: Faker::Quote.famous_last_words)
+woof1 = Woof.create!(image_url: https://scontent.fapa1-1.fna.fbcdn.net/v/t39.30808-6/313104782_10160263115245351_4956873457817623302_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=8xETWNJGjWsAX8uCac0&_nc_ht=scontent.fapa1-1.fna&oh=00_AfBL2ms0g6KJcbf009YlIWg9HGFhgJzYXasjY-GKu21low&oe=6360D439, woof_content: Faker::Quote.famous_last_words)
 woof2 = Woof.create!(image_url: Faker::Avatar.image, woof_content: Faker::Quote.famous_last_words)
 woof3 = Woof.create!(image_url: Faker::Avatar.image, woof_content: Faker::Quote.famous_last_words)
 woof4 = Woof.create!(image_url: Faker::Avatar.image, woof_content: Faker::Quote.famous_last_words)

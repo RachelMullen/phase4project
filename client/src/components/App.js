@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Login from "../pages/Login";
 import NavBar from "./NavBar";
 import Profile from "../pages/Profile";
@@ -25,7 +25,20 @@ export default function App() {
   
   const deleteAccount = (id) => setAccounts(current => current.filter(p => p.id !== id)) 
   const deleteWoof = (id) => setWoofs(woofs => woofs.filter(woof => woof.id !== id))
-  const updateUser = (user) => setUser(user)
+  function updateUser() {
+    setUser({
+      ...user,
+          username: user.username,
+          email: user.email,
+          password: user.password,
+          password_confirmation: user.passwordConfirmation,
+          name: user.name,
+          breed: user.breed,
+          bio: user.bio,
+          image_url: user.image_url,
+    })
+  }
+  
   // const addWoof = (woof) => setWoofs(current => [...current,woof])
 
 
@@ -33,6 +46,7 @@ export default function App() {
 
   return (
     <>
+    <BrowserRouter>
       <NavBar user={user} setUser={setUser}/>
       <main>
         <Switch>
@@ -53,6 +67,7 @@ export default function App() {
           </Route>
         </Switch>
       </main>
+    </BrowserRouter>
     </>
   );
 }

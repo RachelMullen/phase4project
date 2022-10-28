@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import twitterLogo from '../assets/twitterLogo.png'
 
+
 export default function NavBar({ user, setUser, updateUser }) {
   function handleLogout() {
     fetch("/logout", { method: "DELETE" }).then((r) => {

@@ -2,6 +2,7 @@ class WoofsController < ApplicationController
 
     ## SHOW ALL WOOFS
     def index
+        Woof.all.order(created_at: :desc)
         render json: Woof.all
     end
 

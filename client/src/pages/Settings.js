@@ -13,10 +13,9 @@ function Settings ( {user, deleteAccount, updateUser }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 //   const [userData, setUserData] = useState({})
-
 const history = useHistory()
 
-  function handleSubmit(e) {
+function handleSubmit(e) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
@@ -40,6 +39,7 @@ const history = useHistory()
         if (r.ok) {
             r.json().then((userData) => console.log(userData));
             updateUser(user)
+            history.push('/')
           } else {
             r.json().then((err) => setErrors(err.errors));
           }
@@ -54,7 +54,7 @@ const history = useHistory()
         .then(res => {
           if(res.ok){
             deleteAccount(user.id)
-            history.push('/')
+            history.push('/profile/')
           } else {
             res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
           }
@@ -152,7 +152,7 @@ return (
             onChange={(e) => setBio(e.target.value)}
           />
         </p>
-        <button type="submit">{isLoading ? "Loading..." : "Update Account"}</button>
+        <button type="submit" >{isLoading ? "Loading..." : "Update Account"}</button>
         <button type="button" onClick={handleDelete}>Delete Account</button>
         {errors.map((err) => (
           <error key={err}>{err}</error>
@@ -161,5 +161,5 @@ return (
     </>
   );
 }
-
+  
 export default Settings;
