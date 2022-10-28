@@ -42,7 +42,7 @@ export default function SignUpForm({ onLogin }) {
   }
 
   return (
-    <>
+    <div className="signup">
       <form onSubmit={handleSubmit}>
         <p>
           <label>Username</label>
@@ -127,6 +127,6 @@ export default function SignUpForm({ onLogin }) {
           <error key={err}>{err}</error>
         ))}
       </form>
-    </>
+    </div>
   );
 }
