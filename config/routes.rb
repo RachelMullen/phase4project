@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get "/profile/:id", to: "users#user_woofs"
   get "/home", to: "woofs#index"
   post "/profile", to: "woofs#create"
-  # patch "/woof/:id/settings", to: "woofs#update"
+  patch "/woof/:id/", to: "woofs#update"
   delete "/profile/:id", to: "woofs#destroy"
 
   get '*path',

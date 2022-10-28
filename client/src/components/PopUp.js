@@ -1,32 +1,78 @@
-import React from 'react';
-import '/Checkout.css'
-import bone from './bone.png';
+import React, { useState } from 'react';
+import '../css/PopUp.css';
+// import { useParams } from 'react-router-dom';
 
-function PopUp () {
-const PopUp = props => {
-    // function that takes boolean as param to conditionally display popup
-    const { setPopUp } = props 
+function PopUp ( {userWoof, setPopUp, updateWoof} ) {
+     const [woofContent, setWoofContent] = useState(userWoof.woof_content)
+    const [imageUrl, setImageUrl] = useState(userWoof.image_url)
+
+    // const PopUp = props => {
+        // function that takes boolean as param to conditionally display popup
+            // const { setPopUp } = props 
+
+    // const { id } = useParams()
+
+    function handleSubmit(e) {
+            e.preventDefault();
+            // setErrors([]);
+            // setIsLoading(true);
+            console.log(userWoof)
+            fetch(`/woof/${userWoof.id}`, {
+                method: "PATCH",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  woof_content: woofContent,
+                  image_url: imageUrl,
+                }),
+              }).then((r) => {
+                // setIsLoading(false);
+                if (r.ok) {
+                    r.json().then((userData) => updateWoof(userData));
+                }
+                //   } else {
+                //     r.json().then((err) => setErrors(err.errors));
+                //   }
+                })};
+
 
     return (
         <div className="PopUp">
-            {/* x close window */}
             <button className="popup-x" onClick={()=> setPopUp(false)} >X</button>
             <div className="pu-content-container">
-
-
-                <img className="pu-img" src={bone} alt="bone" />
-                <h1>Add more bones?</h1>
-
-                
-            </div>
-            {/* button controls */}
-            <div className="pu-button-container">
-                <button onClick={()=> setPopUp(false)}> MORE BONES! </button>
-                <button onClick={()=> setPopUp(false)}> No, thank you. </button>
+                <div>
+                    <form onSubmit={handleSubmit}>
+                        <p>
+                            <label>Woof!</label>
+                                <input
+                                    type="text"
+                                    name="woof"
+                                    value={woofContent}
+                                    placeholder={userWoof.woof_content}
+                                    onChange={(e) => setWoofContent(e.target.value)}
+                                    />
+                        </p>
+                        <p>
+                            <label>Image</label>
+                                <input
+                                    type="text"
+                                    name="image"
+                                    value={imageUrl}
+                                    placeholder={userWoof.image_url}
+                                    onChange={(e) => setImageUrl(e.target.value)}
+                                />
+                        </p>
+                                <input type="submit" value="Woof!" />
+                    </form>
+                        {/* {errors */}
+                            {/* ? errors.map((e) => ( */}
+                            {/* <h2 style={{ color: "red" }}>{e.toUpperCase()}</h2> */}
+                            {/* )) */}
+                            {/* : null} */}
+                </div>            
             </div>
         </div>
     );
-}
-}
-
+    }
 export default PopUp;

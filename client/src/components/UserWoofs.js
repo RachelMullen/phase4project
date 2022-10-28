@@ -1,59 +1,29 @@
-import { useState, useEffect, useRef } from "react";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { useState } from "react";
 import CommentCard from './CommentCard'
-// import '../css/UserWoof.css;'
+import PopUp from './PopUp';
+import '../css/UserWoofs.css'
 
 
-export default function UserWoofs({userWoof, handleDelete}) {
-  const [errors, setErrors] = useState(false);
-  const history = useHistory();
-  const params = useParams();
-
-  const woofsSettingsPage = () => history.push('/woof/settings')
-
-    // function useEventListener(click, handler, element = window){
-    //     const savedHandler = useRef();
-
-    //     useEffect(() => {
-    //         savedHandler.current = handler;
-    //       }, [handler]);
-
-    //     useEffect(
-    //         () => {
-    //             const isSupported = element && element.addEventListener;
-    //             if (!isSupported) return;
-
-    //             const eventListener = event => savedHandler.current(event);
-    //             element.addEventListener(click, eventListener);
-                
-    //             return () => {
-    //                 element.removeEventListener(click, eventListener);
-    //               };
-    //             },
-    //             [click, element]
-
-    //             );
-    //         };
-
+export default function UserWoofs({userWoof, handleDelete, duringPopUp, updateWoof}) {
+//   const [errors, setErrors] = useState(false);
+const [popUp, setPopUp] = useState(false)
 
 //   if (!woof) return <h1>Loading</h1>;
 //   if (errors) return <h1>{errors}</h1>;
-
   return (
     <>
-    <div>
+    <div className={"Woof" + duringPopUp}>
         <p>{userWoof.woof_content}</p>
         <p>
           <img src={userWoof.image_url} alt={userWoof.woof_content} />
         </p>
       </div>
-        <button onClick = {woofsSettingsPage}>Edit Woof</button>
-      <button onClick = {() => handleDelete(userWoof.id)}>Delete Woof</button>
-      <p>
-        This is where we will come up with something that tracks the number of
-        likes
-      </p>
-      <CommentCard />
+        <button onClick={()=>setPopUp(true)} className={duringPopUp}>Edit Woof</button>
+      <button onClick = {() => handleDelete(userWoof.id)}>Delete Woof</button>    
+        <CommentCard className={"Comment" + duringPopUp}/>
+        <div>
+            {popUp && <PopUp userWoof={userWoof} setPopUp={setPopUp} updateWoof={updateWoof}/>}
+        </div>
       </>
   );
   }

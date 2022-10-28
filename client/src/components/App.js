@@ -51,9 +51,6 @@ export default function App() {
           <Route exact path="/profile/settings">
             <Settings user={user} deleteAccount = {deleteAccount} updateUser = {updateUser}/>
           </Route>
-          {/* <Route exact path="/woof/settings">
-            <WoofSettings />
-          </Route> */}
         </Switch>
       </main>
     </>

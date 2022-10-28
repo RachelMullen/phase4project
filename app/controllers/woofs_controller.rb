@@ -7,7 +7,7 @@ class WoofsController < ApplicationController
 
     ## CREATE NEW WOOF
     def create
-        # ! 
+        # 
         woof = @current_user.woofs.create!(woof_params)
         render json: woof, status: :created
     end
