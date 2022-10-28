@@ -26,7 +26,6 @@ export default function Login({ onLogin, updateUser }) {
           <div className="popup">
             {/* <button onclick={handleClick}>Sign up with phone or email</button> */}
             <span className="popuptext" id="myPopup">
-              Popup text...
             </span>
             <p>
               By signing up, you agree to the Terms of Service and Privacy

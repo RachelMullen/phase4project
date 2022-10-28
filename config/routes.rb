@@ -7,22 +7,31 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
+  #sesssions
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  # get "/profile/:id", to: "woofs#show"
+
+  #users
+  get "/profile/:id", to: "users#user_woofs"
   patch "/profile/settings", to: "users#update"
   delete "/profile/settings", to: "users#destroy"
-  get "/profile/:id", to: "users#user_woofs"
+
+  #woofs
+  # get "/profile/:id", to: "woofs#show"
   get "/home", to: "woofs#index"
   post "/profile", to: "woofs#create"
   patch "/woof/:id/", to: "woofs#update"
   delete "/profile/:id", to: "woofs#destroy"
 
+  #comments  
+  # get "/comments", to: "comments#index"
+  # post "/comments", to: "comments#create"
+  # get "/comments/:id", to: "comments#show"
+  # patch "/comments/:id", to "comments#update"
+  # delete "/comments/:id", to: "comments#destroy"
 
-  #Delete Comment
-  # get "/comments/id", to "comments#destroy" ___ USE CHASES THAT DOESN"T LET YOU DELETE UNLESS YOU ARE THE USER
 
   get '*path',
       to: 'fallback#index',

@@ -2,12 +2,13 @@ class WoofsController < ApplicationController
 
     ## SHOW ALL WOOFS
     def index
+        Woof.all.order(created_at: :desc)
         render json: Woof.all
     end
 
     ## CREATE NEW WOOF
     def create
-        # ! 
+        # 
         woof = @current_user.woofs.create!(woof_params)
         render json: woof, status: :created
     end
@@ -38,3 +39,5 @@ class WoofsController < ApplicationController
         params.permit(:woof_content, :image_url)
     end
 end
+
+

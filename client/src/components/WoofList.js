@@ -1,6 +1,6 @@
 import React from "react";
 import WoofCard from "./WoofCard";
-// import WoofForm from "../components/WoofForm";
+import WoofForm from "../components/WoofForm";
 // import { useHistory, useParams } from "react-router-dom";
 // import CommentCard from "../components/WoofForm";
 
@@ -23,7 +23,7 @@ export default function WoofList({ woofs }) {
 
   return (
     <ul className="woofs">
-      {/* <WoofForm /> */}
+      <WoofForm />
       {woofsCollection}
       {/* {comments ? comments={comments} : null} */}
     </ul>

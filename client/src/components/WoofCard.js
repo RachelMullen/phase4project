@@ -1,24 +1,31 @@
 // import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CommentCard from "./CommentCard";
 
 export default function WoofCard({ woof }) {
-  // const [comments, setComments] = useState([])
+  const [comments, setComments] = useState([])
   // const params = useParams();
-  const [errors, setErrors] = useState(false);
+  // const [errors, setErrors] = useState(false);
 
   // const deleteComment = (id) => setComments(current => current.filter(p => p.id !== id)) 
+
+  useEffect(() => {
+    fetch("/comments")
+      .then((r) => r.json())
+      .then(setComments);
+  }, []);
 
   const commentsCollection = woof.comments.map((comment) => {
     return <CommentCard key={comment.id} comment={comment} />;
   });
 
   if (!woof) return <h1>Loading</h1>;
-  if (errors) return <h1>{errors}</h1>;
+  // if (errors) return <h1>{errors}</h1>;
 
   return (
     <>
       <div>
+        <hr />
         <p>{woof.woof_content}</p>
         <p>
           <img src={woof.image_url} alt={woof.woof_content} />
@@ -26,8 +33,6 @@ export default function WoofCard({ woof }) {
       </div>
     
       <div>  <p>
-        This is where we will come up with something that tracks the number of
-        likes
         {commentsCollection}
       </p>
       </div>

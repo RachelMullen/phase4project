@@ -6,7 +6,6 @@ export default function CommentForm({ addComment }) {
     comment: "",
   });
   const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
 
   const handleChange = (e) => {
@@ -16,7 +15,6 @@ export default function CommentForm({ addComment }) {
 
   function onSubmit(e) {
     e.preventDefault();
-    setIsLoading(true);
 
     fetch("/comments", {
       method: "POST",

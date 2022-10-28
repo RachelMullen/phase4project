@@ -96,6 +96,13 @@ button:hover {
   cursor: pointer;
 }
 
+input:hover {
+  background-color: rgba(0, 0, 0, 0.346);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+  transition: 500ms ease all;
+  cursor: pointer;
+}
+
 .login {
   display: flex;
   flex-direction: row;
@@ -151,6 +158,11 @@ input:focus {
 textarea:focus {
   outline: none ! important;
   border-color: #719ECE;
+  }
+
+hr {
+    background: rgb(0, 0, 0);
+    height: 2px;
   }
 
   /* Assign to parents for changing direction
