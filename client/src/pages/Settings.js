@@ -140,8 +140,7 @@ return (
             value={image_url}
             placeholder={user.image_url}
             onChange={(e) => setImage_Url(e.target.value)}
-          />                    history.push(`/users/${user.id}`)
-
+          />
         </p>
         <p>
           <label>Bio</label>
