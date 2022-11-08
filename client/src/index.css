@@ -42,7 +42,7 @@ html:focus-within {
 }
 
 /* Set core body defaults */
-body {
+body { 
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
@@ -165,6 +165,16 @@ textarea:focus {
 hr {
     background: rgb(0, 0, 0);
     height: 2px;
+  }
+
+  .navbar_header {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .navbar_name {
+    margin-top: 3rem;
+    font-size: 2rem;
   }
 
   /* Assign to parents for changing direction

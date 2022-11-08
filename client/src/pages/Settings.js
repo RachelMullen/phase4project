@@ -67,7 +67,7 @@ function handleSubmit(e) {
       
 
 return (
-<>
+    <div className="settings">
       <form onSubmit={handleSubmit}>
         <p>
           <label>Username</label>
@@ -158,7 +158,7 @@ return (
           <error key={err}>{err}</error>
         ))}
       </form>
-    </>
+    </div>
   );
 }
   

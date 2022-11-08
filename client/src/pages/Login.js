@@ -22,7 +22,7 @@ export default function Login({ onLogin, updateUser }) {
         <div className="login_content">
           <img className="twitter_logo" alt="twitter_logo" src={twitterLogo} />
           <h1 className="login_header">Happening now</h1>
-          <h2 className="login">Join Twitter today.</h2>
+          <h2 className="login_text">Join Twitter today.</h2>
           <div className="popup">
             {/* <button onclick={handleClick}>Sign up with phone or email</button> */}
             <span className="popuptext" id="myPopup">

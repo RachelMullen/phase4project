@@ -32,7 +32,9 @@ export default function WoofCard({ woof }) {
         </p>
       </div>
     
-      <div>  <p>
+      <div>  
+      <p>
+      <h1>Comments</h1>
         {commentsCollection}
       </p>
       </div>
