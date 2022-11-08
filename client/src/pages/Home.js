@@ -12,5 +12,6 @@ export default function Home() {
     });
   }, []);
 
-  return <>{woofs ? <WoofList woofs={woofs} /> : null}</>;
+  return <>
+    {woofs ? <WoofList woofs={woofs} /> : null}</>;
 }

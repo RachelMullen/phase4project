@@ -68,11 +68,10 @@ export default function Profile( {user, deleteWoof } ) {
 
   return (
     <>
-      <div>
+      <div className="profile">
         <img alt="profile_picture" src={user.image_url} />
         <h1>{user.name}</h1>
         <h2>@{user.username}</h2>
-        <h2>Joined {user.created_at}</h2>
         <button onClick={settingsPage}>Edit Profile</button>
           {/* Does this need to be a form? Should the form be separate? Will this redirect to signup and then override?  */}
         {/* {/* {/* <p> Should we display all of the users Woofs here as a stretch goal?</p> */}
