@@ -59,8 +59,8 @@ a:not([class]) {
 
 a {
   text-decoration: none;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: 4px;
+  margin-left: 4px;
   outline: 0;
   cursor: pointer;
 }
@@ -175,6 +175,16 @@ hr {
   .navbar_name {
     margin-top: 3rem;
     font-size: 2rem;
+  }
+
+  button {
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+ input {
+    border-radius: 8px;
+    padding: 8px;
   }
 
   /* Assign to parents for changing direction
