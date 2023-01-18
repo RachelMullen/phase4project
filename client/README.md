@@ -1,47 +1,57 @@
-## WOOF - A TWITTER CLONE FOR DOGS
+## FREE FITNESS DENVER
+
 ## TABLE OF CONTENTS
 
-- Function & Features
-- Demo/Visuals
+- Motivation
 - Built with
+- Usage & Features
 - Roadmap
 - Maintainers
 
-## FUNCTION & FEATURES
-
-TBD NAME OF PROJECT is an app for anyone who wants to create a one-stop shop organize their experiences. Save your favorite places, explore location collections, and <strong>track</strong> your progress all in one spot. 
-
-Leveraging Google Map’s API, users can:
-- Login and create an account.
-- Save favorite places.
-- Save collections of places.
-- Indicate if they have visited a place or not.
-- View their progress in completing all of the experiences in a collection.
-- View collections of places created by other users.
-- (Future) Share collections with other users.
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## DEMO/VISUALS
-COMING SOON!
+## MOTIVATION
+Woofer was developed as a Twitter clone for dogs. We were excited to see how we could replicate the functionality and features, specifically focusing on CRUD application.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## BUILT WITH
-This project was built using:
 
 - React
 - Ruby
 - Sinatra
-- API: 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## USAGE & FEATURES
+Woofer features authentication and authorization for signup and login.
+
+Users can:
+
+- Login and sign up for an an account.
+- View "woofs" from other users
+- View comments from other users
+- View their specific "woofs"
+- Edit their specific "woofs"
+- Delete their "woofs"
+_ View, edit, and delete their profile
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## ROADMAP
 
-COMING SOON!
-
 In the future, we would love to build in something that allows users to filter costs of experiences.
+(Would love Pull requests that build towards these objectives)
+ - [x] Signup
+ - [x] Login
+ - [x] Profile
+   - [x] Versions
+   - [x] Owners
+   - [ ] Crate details
+
+ - [x] Add another command e.g. `chit repo` which might get meta data like stars and collaborator numbers etc
+ - [ ] Change error handling to use result types
+ - [ ] Use some more functional programming techniques to cut the code size down
+ - [ ] distribute through brew, apt-get, etc...
+ - [ ] expand the repository details returned by the `repo` command
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## MAINTAINERS
 
-- Rachel Mullen: https://www.linkedin.com/in/racheljmullen/ 
-- Erica Hashert: https://www.linkedin.com/in/erica-hashert/ 
+- Rachel Mullen: https://www.linkedin.com/in/racheljmullen/
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
