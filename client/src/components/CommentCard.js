@@ -1,5 +1,5 @@
 import { Link, useParams, useHistory } from "react-router-dom";
-import { React} from "react";
+import { React } from "react";
 
 export default function CommentCard({ comment }) {
   // const [comments, setComments] = useState({});
@@ -9,9 +9,7 @@ export default function CommentCard({ comment }) {
 
   return (
     <>
-      <div>
-          {comment.comment}
-        </div> 
+      <div>{comment.comment}</div>
     </>
   );
 }

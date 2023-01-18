@@ -10,13 +10,13 @@ export default function WoofList({ woofs }) {
   // const history = useHistory();
   // const params = useParams();
 
-//   useEffect(() => {
-//     fetch("/comments").then((response) => {
-//       if (response.ok) 
-//         response.json().then((comments) => setComments(comments));
-//       }
-// );
-// }, []);
+  //   useEffect(() => {
+  //     fetch("/comments").then((response) => {
+  //       if (response.ok)
+  //         response.json().then((comments) => setComments(comments));
+  //       }
+  // );
+  // }, []);
   const woofsCollection = woofs.map((woof) => {
     return <WoofCard key={woof.id} woof={woof} />;
   });

@@ -25,8 +25,7 @@ export default function Login({ onLogin, updateUser }) {
           <h2 className="login_text">Join Twitter today.</h2>
           <div className="popup">
             {/* <button onclick={handleClick}>Sign up with phone or email</button> */}
-            <span className="popuptext" id="myPopup">
-            </span>
+            <span className="popuptext" id="myPopup"></span>
             <p>
               By signing up, you agree to the Terms of Service and Privacy
               Policy, including Cookie Use.
