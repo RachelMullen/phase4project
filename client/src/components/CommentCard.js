@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import CommentForm from "../components/CommentForm";
-
+import { Link, useParams, useHistory } from "react-router-dom";
+import { React} from "react";
 
 export default function CommentCard({ comment, woof_id } ) {
   const [comments, setComments] = useState({});
@@ -23,8 +21,7 @@ export default function CommentCard({ comment, woof_id } ) {
   return (
     <>
       <div>
-        {comment.comment}
-        <CommentForm onAddComment={handleAddComment} woof_id={woof_id} />
+          {comment.comment}
         </div> 
     </>
   );

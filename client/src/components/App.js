@@ -25,10 +25,10 @@ export default function App() {
 
   const deleteAccount = (id) =>
     setAccounts((current) => current.filter((p) => p.id !== id));
-  
+
   const deleteWoof = (id) =>
     setWoofs((woofs) => woofs.filter((woof) => woof.id !== id));
-  
+
   function updateUser() {
     setUser({
       ...user,

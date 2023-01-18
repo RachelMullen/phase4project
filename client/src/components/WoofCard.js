@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import CommentCard from "./CommentCard";
 
 export default function WoofCard({ woof }) {
-  const [comments, setComments] = useState([])
+  const [comments, setComments] = useState([]);
   // const params = useParams();
   // const [errors, setErrors] = useState(false);
 
-  // const deleteComment = (id) => setComments(current => current.filter(p => p.id !== id)) 
+  // const deleteComment = (id) => setComments(current => current.filter(p => p.id !== id))
 
   useEffect(() => {
     fetch("/comments")
@@ -31,14 +31,14 @@ export default function WoofCard({ woof }) {
           <img src={woof.image_url} alt={woof.woof_content} />
         </p>
       </div>
-    
-      <div>  
-      <p>
-      <h1>Comments</h1>
-        {commentsCollection}
-      </p>
+
+      <div>
+        <p>
+          <h1>Comments</h1>
+          {commentsCollection}
+        </p>
       </div>
-      </>
+    </>
   );
 }
 //Erica's Code for this
