@@ -8,7 +8,7 @@ Woofer was developed as a Twitter clone for dogs. We were excited to see how we 
 - React
 - Ruby
 - Sinatra
-- ActiveRecord
+- Active Record
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## USAGE & FEATURES
@@ -22,7 +22,7 @@ Users can:
 - View their specific "woofs"
 - Edit their specific "woofs"
 - Delete their "woofs"
-_ View, edit, and delete their profile
+- View, edit, and delete their profile
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## ROADMAP
