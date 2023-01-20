@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LoginForm from "../components/LoginForm";
 import SignUp from "../pages/SignUp";
 
-import twitterLogo from "../assets/twitterLogo.png";
+import Woof1 from "../assets/Woof1.png";
 import twitterLoginGraphic from "../assets/twitterLoginGraphic.jpeg";
 
 export default function Login({ onLogin, updateUser }) {
@@ -20,9 +20,9 @@ export default function Login({ onLogin, updateUser }) {
           src={twitterLoginGraphic}
         />
         <div className="login_content">
-          <img className="twitter_logo" alt="twitter_logo" src={twitterLogo} />
+          <img className="twitter_logo" alt="Woof1" src={Woof1} />
           <h1 className="login_header">Happening now</h1>
-          <h2 className="login_text">Join Twitter today.</h2>
+          <h2 className="login_text">Join Woofer today.</h2>
           <div className="popup">
             {/* <button onclick={handleClick}>Sign up with phone or email</button> */}
             <span className="popuptext" id="myPopup"></span>
