@@ -1,5 +1,5 @@
 ## WOOFER
-
+![Woofer](client/src/assets/1.png)
 ## MOTIVATION
 
 Free Fitness Denver was developed a Twitter clone for dogs. We were interested in replicating the functionality and features of Twitter, specificall CRUD actions.
