@@ -2,7 +2,7 @@
 ![Woofer](client/src/assets/1.png)
 ## MOTIVATION
 
-Free Fitness Denver was developed a Twitter clone for dogs. We were interested in replicating the functionality and features of Twitter, specificall CRUD actions.
+Woofer was developed a Twitter clone for dogs. We were interested in replicating the functionality and features of Twitter, specificall CRUD actions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -21,8 +21,8 @@ Woofer features authentication and authorization for signup and login.
 Users can:
 
 - Login and sign up for an an account.
-- View and add free fitness events and activities
-- View free fitness groups
+- View, add, and delete woofs
+- View comments
 - View, edit, and delete their profile
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
