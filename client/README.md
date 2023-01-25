@@ -5,10 +5,19 @@ Woofer was developed as a Twitter clone for dogs. We were excited to see how we 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## BUILT WITH
+<<<<<<< HEAD
 - React
 - Ruby
 - Sinatra
 - Active Record
+=======
+- Sinatra
+- Active Record
+- ![React](https://img.shields.io/badge/react-%2320232a.svg?style-flat&logo=react&logoColor=%2361DAFB)
+- ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style-flat?&logo=css3&logoColor=white)
+- ![Rails](https://img.shields.io/badge/rails-%23CC0000.svg?style-flat&logo=ruby-on-rails&logoColor=white)
+
+>>>>>>> bac2d817c860eaff003d70a67db54b26502885a9
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## USAGE & FEATURES
